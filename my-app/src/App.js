@@ -65,19 +65,19 @@ function FileUpload({ onFileUpload }) {
     event.preventDefault();
     const formData = new FormData(event.target);
     let files = event.target.uploadedFile.files;
+    if (files.length == 0) {
+      alert('Please select a file.');
+      return;
+    }
 
-
-    console.log('files: ', files);
-    console.log('files length: ', files.length);
+    console.log('files uploaded: ', files);
+    console.log('number of files uploaded: ', files.length);
     // Iterare through the files and extract text from each one
     for (let i = 0; i < files.length; i++) {
       console.log('file being checked: ', files[i]);
       let file = files[i];
       // Check if a file was selected, if it has a size greater than 0 then it exists
-      if (!file || file.size == 0) {
-        alert('Please select a file');
-        return;
-      }
+
       // Check if the file is a PDF or TXT file
       if (file.type === 'application/pdf' || file.type === 'text/plain') {
         const newEntry = {
