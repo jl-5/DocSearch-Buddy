@@ -2,7 +2,7 @@ import FileUpload from './components/FileUpload';
 import SearchBar from './components/SearchBar';
 import ScrollableTableContainer from './components/FileTable/ScollableTableContainer';
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 export default function App() {
 
@@ -22,6 +22,8 @@ export default function App() {
   const handleDeleteDocument = (id) => {
     setDocuments(prev => prev.filter(doc => doc.id !== id));
   };
+
+  // layout of the app
   return <div>
     <h1 style={{ textAlign: 'center', padding: '30px', fontSize: '50px', color: ' #00439C' }}>DocSearch Buddy</h1>
     <h3 style={{ textAlign: 'center', padding: '10px', fontSize: '25px', color: ' #00439C' }}>Upload files below and search them for text.</h3>
@@ -29,5 +31,4 @@ export default function App() {
     <ScrollableTableContainer documents={documents} onDelete={handleDeleteDocument} />
     <SearchBar />
   </div>
-
 }
