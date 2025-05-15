@@ -15,7 +15,6 @@ code {
 
 .table-container{
     background-color: #eaeaea;
-    border-radius: 20px;
     height: 244px;
     
     overflow: scroll;
@@ -29,7 +28,7 @@ table {
   font-family: Arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
-  border: 1px solid #ddd;
+  border: 3px solid #ddd;
   text-align: center;
   justify-content: center;
   margin-left: auto;
