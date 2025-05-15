@@ -1,27 +1,37 @@
-import { FaSearch } from "react-icons/fa";
+import { FaSearch, FaTimes } from "react-icons/fa";
 import pdfToText from 'react-pdftotext'
 import React, { useState } from 'react';
 
-function DocumentRow({ document }) {
-  const name = document.name
-
+function DocumentRow({ document, onDelete }) {
   return (
     <tr>
-      {/* TODO: Add document icon. */}
-      <td>{name}</td>
-
+      <td>{document.name}</td>
+      <td>
+        <button
+          onClick={() => onDelete(document.id)}
+          style={{
+            background: 'none',
+            border: 'none',
+            cursor: 'pointer',
+          }}
+          aria-label={`Delete ${document.name}`}
+        >
+          <FaTimes color="red" />
+        </button>
+      </td>
     </tr>
   );
 }
 
-function DocumentTable({ documents }) {
+function DocumentTable({ documents, onDelete }) {
   const rows = [];
 
   documents.forEach((document) => {
     rows.push(
       <DocumentRow
         document={document}
-        key={document.name} />
+        key={document.name}
+        onDelete={onDelete} />
     );
   });
   return (
@@ -39,19 +49,24 @@ function DocumentTable({ documents }) {
   );
 }
 
-function ScrollableTableContainer({ documents }) {
+function ScrollableTableContainer({ documents, onDelete }) {
   return (
     <div className="table-container">
-      <DocumentTable documents={documents} />
+      <DocumentTable documents={documents} onDelete={onDelete} />
     </div>
   );
 };
 
 function SearchBar() {
+  const [isFocused, setIsFocused] = useState(false);
   return (
     <div style={{ display: 'flex', flexDirection: 'row', textAlign: 'center', justifyContent: 'center', alignItems: 'center' }}>
       <form style={{ textAlign: 'center' }}>
-        <input type="text" style={{ textAlign: 'center', width: '10cm', height: '1cm', fontSize: '20px' }} placeholder="What are you looking for?" />
+        <input type="text"
+          style={{ textAlign: 'center', width: '10cm', height: '1cm', fontSize: '20px' }}
+          onFocus={() => setIsFocused(true)}
+          onBlur={() => setIsFocused(false)}
+          placeholder={isFocused ? '' : 'What are you looking for?'} />
       </form>
       <FaSearch size='1cm' style={{ marginLeft: '5px', color: '#000' }} />
 
@@ -120,10 +135,14 @@ export default function App() {
     setDocuments(prev => [...prev, newEntry]);
     console.log('added entry: ', newEntry);
   };
+
+  const handleDeleteDocument = (id) => {
+    setDocuments(prev => prev.filter(doc => doc.id !== id));
+  };
   return <div>
     <h1 style={{ textAlign: 'center', padding: '30px', fontSize: '50px', color: ' #00439C' }}>DocSearch Buddy</h1>
     <SearchBar />
-    <ScrollableTableContainer documents={documents} />
+    <ScrollableTableContainer documents={documents} onDelete={handleDeleteDocument} />
     <FileUpload onFileUpload={handleAddEntry} />
   </div>
 
