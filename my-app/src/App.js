@@ -1,76 +1,24 @@
 import FileUpload from './components/FileUpload';
 import SearchBar from './components/SearchBar';
+import ScrollableTableContainer from './components/FileTable/ScollableTableContainer';
 
-import { FaSearch, FaTimes } from "react-icons/fa";
 import React, { useState } from 'react';
-
-function DocumentRow({ document, onDelete }) {
-  return (
-    <tr>
-      <td>{document.name}</td>
-      <td>
-        <button
-          onClick={() => onDelete(document.id)}
-          style={{
-            background: 'none',
-            border: 'none',
-            cursor: 'pointer',
-          }}
-          aria-label={`Delete ${document.name}`}
-        >
-          <FaTimes color="red" />
-        </button>
-      </td>
-    </tr>
-  );
-}
-
-function DocumentTable({ documents, onDelete }) {
-  const rows = [];
-
-  documents.forEach((document) => {
-    rows.push(
-      <DocumentRow
-        document={document}
-        key={document.name}
-        onDelete={onDelete} />
-    );
-  });
-  return (
-    <div>
-      <table style={{ justifyContent: 'center' }}>
-        <thead>
-          <tr style={{ backgroundColor: 'beige' }}>
-            <th style={{ textAlign: 'center' }} colSpan="2">File List</th>
-          </tr>
-        </thead>
-        <tbody>{rows}</tbody>
-      </table>
-    </div>
-
-  );
-}
-
-function ScrollableTableContainer({ documents, onDelete }) {
-  return (
-    <div className="table-container">
-      <DocumentTable documents={documents} onDelete={onDelete} />
-    </div>
-  );
-};
-
-
-
 
 export default function App() {
 
+  // state to hold and manage the documents
   const [documents, setDocuments] = useState([]);
 
+  // state to hold and manage the search query
+  const [searchQuery, setSearchQuery] = useState('');
+
+  // function to handle the addition of new entries
   const handleAddEntry = (newEntry) => {
     setDocuments(prev => [...prev, newEntry]);
     console.log('added entry: ', newEntry);
   };
 
+  // function to handle the deletion of docuements when the user clicks the "X" button next to a document
   const handleDeleteDocument = (id) => {
     setDocuments(prev => prev.filter(doc => doc.id !== id));
   };
