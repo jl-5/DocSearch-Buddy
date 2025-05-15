@@ -28,7 +28,7 @@ export default function App() {
     <h1 style={{ textAlign: 'center', padding: '30px', fontSize: '50px', color: ' #00439C' }}>DocSearch Buddy</h1>
     <h3 style={{ textAlign: 'center', padding: '10px', fontSize: '25px', color: ' #00439C' }}>Upload files below and search them for text.</h3>
     <FileUpload onFileUpload={handleAddEntry} />
-    <ScrollableTableContainer documents={documents} onDelete={handleDeleteDocument} />
-    <SearchBar />
+    <ScrollableTableContainer documents={documents} onDelete={handleDeleteDocument} searchQuery={searchQuery} />
+    <SearchBar onSearch={setSearchQuery}/>
   </div>
 }

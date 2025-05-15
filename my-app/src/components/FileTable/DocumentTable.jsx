@@ -1,6 +1,6 @@
 import DocumentRow from "./DocumentRow";
 
-function DocumentTable({ documents, onDelete }) {
+function DocumentTable({ documents, onDelete, searchQuery }) {
   const rows = [];
 
   documents.forEach((document) => {
@@ -8,7 +8,8 @@ function DocumentTable({ documents, onDelete }) {
       <DocumentRow
         document={document}
         key={document.name}
-        onDelete={onDelete} />
+        onDelete={onDelete}
+        searchQuery={searchQuery} />
     );
   });
   return (
