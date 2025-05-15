@@ -39,7 +39,7 @@ function DocumentTable({ documents, onDelete }) {
       <table style={{ justifyContent: 'center' }}>
         <thead>
           <tr style={{ backgroundColor: 'beige' }}>
-            <th style={{ textAlign: 'center' }}>File List</th>
+            <th style={{ textAlign: 'center' }} colSpan="2">File List</th>
           </tr>
         </thead>
         <tbody>{rows}</tbody>
@@ -60,7 +60,7 @@ function ScrollableTableContainer({ documents, onDelete }) {
 function SearchBar() {
   const [isFocused, setIsFocused] = useState(false);
   return (
-    <div style={{ display: 'flex', flexDirection: 'row', textAlign: 'center', justifyContent: 'center', alignItems: 'center' }}>
+    <div style={{ display: 'flex', flexDirection: 'row', textAlign: 'center', justifyContent: 'center', alignItems: 'center', padding: '20px' }}>
       <form style={{ textAlign: 'center' }}>
         <input type="text"
           style={{ textAlign: 'center', width: '10cm', height: '1cm', fontSize: '20px' }}
@@ -141,9 +141,10 @@ export default function App() {
   };
   return <div>
     <h1 style={{ textAlign: 'center', padding: '30px', fontSize: '50px', color: ' #00439C' }}>DocSearch Buddy</h1>
-    <SearchBar />
-    <ScrollableTableContainer documents={documents} onDelete={handleDeleteDocument} />
+    <h3 style={{ textAlign: 'center', padding: '10px', fontSize: '25px', color: ' #00439C' }}>Upload files below and search them for text.</h3>
     <FileUpload onFileUpload={handleAddEntry} />
+    <ScrollableTableContainer documents={documents} onDelete={handleDeleteDocument} />
+    <SearchBar/>
   </div>
 
 }
