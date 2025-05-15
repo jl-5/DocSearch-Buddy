@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/docsearch-buddy/static/css/main.a903285b.css",
+    "main.js": "/docsearch-buddy/static/js/main.d781ba06.js",
+    "static/js/453.5854469d.chunk.js": "/docsearch-buddy/static/js/453.5854469d.chunk.js",
+    "index.html": "/docsearch-buddy/index.html",
+    "main.a903285b.css.map": "/docsearch-buddy/static/css/main.a903285b.css.map",
+    "main.d781ba06.js.map": "/docsearch-buddy/static/js/main.d781ba06.js.map",
+    "453.5854469d.chunk.js.map": "/docsearch-buddy/static/js/453.5854469d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a903285b.css",
+    "static/js/main.d781ba06.js"
+  ]
+}
