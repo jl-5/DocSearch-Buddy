@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/DocSearch-Buddy/static/css/main.a903285b.css",
-    "main.js": "/DocSearch-Buddy/static/js/main.a4cda0cf.js",
-    "static/js/453.5854469d.chunk.js": "/DocSearch-Buddy/static/js/453.5854469d.chunk.js",
-    "index.html": "/DocSearch-Buddy/index.html",
-    "main.a903285b.css.map": "/DocSearch-Buddy/static/css/main.a903285b.css.map",
-    "main.a4cda0cf.js.map": "/DocSearch-Buddy/static/js/main.a4cda0cf.js.map",
-    "453.5854469d.chunk.js.map": "/DocSearch-Buddy/static/js/453.5854469d.chunk.js.map"
+    "main.css": "/DocSearch-Buddy/docsearch-buddy-react-app/static/css/main.a903285b.css",
+    "main.js": "/DocSearch-Buddy/docsearch-buddy-react-app/static/js/main.2b26f0f0.js",
+    "static/js/453.5854469d.chunk.js": "/DocSearch-Buddy/docsearch-buddy-react-app/static/js/453.5854469d.chunk.js",
+    "index.html": "/DocSearch-Buddy/docsearch-buddy-react-app/index.html",
+    "main.a903285b.css.map": "/DocSearch-Buddy/docsearch-buddy-react-app/static/css/main.a903285b.css.map",
+    "main.2b26f0f0.js.map": "/DocSearch-Buddy/docsearch-buddy-react-app/static/js/main.2b26f0f0.js.map",
+    "453.5854469d.chunk.js.map": "/DocSearch-Buddy/docsearch-buddy-react-app/static/js/453.5854469d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a903285b.css",
-    "static/js/main.a4cda0cf.js"
+    "static/js/main.2b26f0f0.js"
   ]
 }
